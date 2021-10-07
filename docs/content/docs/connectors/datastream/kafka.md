@@ -1,6 +1,6 @@
 ---
 title: Kafka
-weight: 2
+weight: 3
 type: docs
 aliases:
   - /dev/connectors/kafka.html
@@ -37,10 +37,6 @@ Modern Kafka clients are backwards compatible with broker versions 0.10.0 or lat
 For details on Kafka compatibility, please refer to the official [Kafka documentation](https://kafka.apache.org/protocol.html#protocol_compatibility).
 
 {{< artifact flink-connector-kafka withScalaVersion >}}
-
-if you are using Kafka source, ```flink-connector-base``` is also required as dependency:
-
-{{< artifact flink-connector-base >}}
 
 Flink's streaming connectors are not currently part of the binary distribution.
 See how to link with them for cluster execution [here]({{< ref "docs/dev/datastream/project-configuration" >}}).
@@ -154,6 +150,7 @@ KafkaSource has following options for configuration:
   below for more details.
 - ```register.consumer.metrics``` specifies whether to register metrics of KafkaConsumer in Flink
 metric group
+- ```commit.offsets.on.checkpoint``` specifies whether to commit consuming offsets to Kafka brokers on checkpoint
 
 For configurations of KafkaConsumer, you can refer to
 <a href="http://kafka.apache.org/documentation/#consumerconfigs">Apache Kafka documentation</a>
